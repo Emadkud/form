@@ -1,25 +1,52 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+    constructor() {
+        super();
+
+        this.state = {
+            email: "",
+            password: "",
+            rememberMe: false,
+            emailIsValid: false,
+            passwordIsValid: false,
+            isSubmitted: false
+        }
+    }
+    handelEmailChange = (e) => {
+        this.setState ({
+          
+            email:e.target.value},
+      () => {} 
+    
+     
+   
+      
+    )};
+     render(){
+        return(
+        
+           
+            <form onSubmit={this.handleSubmit} >
+            <div classeName="mb-3">
+              <label htmlfor="exampleInputEmail1" classeName="form-label">Email address</label>
+              <input type="email" classeName="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
+              <div id="emailHelp" classeName="form-text" onChange={this.handleChange}></div>
+            </div>
+            <div classeName="mb-3">
+              <label htmlfor="exampleInputPassword1" classeName="form-label">Password</label>
+              <input type="password" classeName="form-control" id="exampleInputPassword1" onChange={this.handleChange}/>
+            </div>
+            <div classeName="mb-3 form-check">
+              <input type="checkbox" classeName="form-check-input" id="exampleCheck1" onChange={this.handleChange}/>
+              <label classeName="form-check-label" htmlfor="exampleCheck1">Check me out</label>
+            </div>
+            <button type="submit" classeName="btn btn-primary">Submit</button>
+          </form>
+          
+        )
+     }
+
 }
 
-export default App;
+export default App
